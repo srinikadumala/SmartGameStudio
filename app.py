@@ -183,22 +183,12 @@ def register():
             ""
         )
 
-        confirm_password = request.form.get(
-            "confirm_password",
-            ""
-        )
-
 
         # ----------------------------------------------------
         # Check empty fields
         # ----------------------------------------------------
 
-        if (
-            not username
-            or not email
-            or not password
-            or not confirm_password
-        ):
+        if not username or not email or not password:
 
             flash(
                 "Please fill in all fields.",
@@ -234,22 +224,6 @@ def register():
 
             flash(
                 "Password must contain at least 8 characters.",
-                "error"
-            )
-
-            return render_template(
-                "register.html"
-            )
-
-
-        # ----------------------------------------------------
-        # Confirm password
-        # ----------------------------------------------------
-
-        if password != confirm_password:
-
-            flash(
-                "Passwords do not match.",
                 "error"
             )
 
