@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>SmartGame Studio</title>
+
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            background:
+                #05050a;
+
+            color: white;
+
+            overflow-x: hidden;
+        }
+
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+
+        /* =====================================================
+           BACKGROUND
+        ===================================================== */
+
+        .page {
+            min-height: 100vh;
+
+            background:
+
+                radial-gradient(
+                    circle at 75% 35%,
+                    rgba(92, 63, 255, 0.20),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 15% 70%,
+                    rgba(0, 180, 255, 0.08),
+                    transparent 28%
+                ),
+
+                #05050a;
+        }
+
+
+
+        /* =====================================================
+           NAVIGATION
+        ===================================================== */
+
+        .navbar {
+
+            position: sticky;
+
+            top: 16px;
+
+            z-index: 100;
+
+            width: calc(100% - 60px);
+
+            max-width: 1400px;
+
+            margin: 16px auto 0;
+
+            padding: 13px 18px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            border-radius: 18px;
+
+            border: 1px solid
+                rgba(255,255,255,0.09);
+
+            background:
+                rgba(10, 10, 22, 0.72);
+
+            backdrop-filter:
+                blur(20px);
+
+            box-shadow:
+                0 15px 50px
+                rgba(0,0,0,0.35);
+        }
+
+
+
+        /* LOGO */
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            font-size: 18px;
+
+            font-weight: 750;
+
+            white-space: nowrap;
+        }
+
+
+        .logo-icon {
+
+            width: 42px;
+
+            height: 42px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 12px;
+
+            font-size: 22px;
+
+            font-weight: 900;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #7c3aed,
+                    #06b6d4
+                );
+
+            box-shadow:
+                0 0 25px
+                rgba(124,58,237,0.45);
+        }
+
+
+
+        /* NAV LINKS */
+
+        .nav-links {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 34px;
+
+            margin-left: 40px;
+        }
+
+
+        .nav-links a {
+
+            color:
+                rgba(255,255,255,0.70);
+
+            font-size: 14px;
+
+            transition:
+                0.2s ease;
+        }
+
+
+        .nav-links a:hover {
+
+            color: white;
+
+        }
+
+
+
+        /* RIGHT BUTTONS */
+
+        .nav-actions {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+        }
+
+
+        .login-btn {
+
+            padding:
+                11px 22px;
+
+            border-radius: 12px;
+
+            border: 1px solid
+                rgba(255,255,255,0.15);
+
+            color: white;
+
+            background:
+                rgba(255,255,255,0.04);
+
+            transition:
+                0.25s ease;
+        }
+
+
+        .login-btn:hover {
+
+            background:
+                rgba(255,255,255,0.10);
+
+            transform:
+                translateY(-1px);
+        }
+
+
+        .register-btn {
+
+            padding:
+                11px 23px;
+
+            border-radius: 12px;
+
+            color: white;
+
+            font-weight: 700;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #8b5cf6,
+                    #06b6d4
+                );
+
+            box-shadow:
+                0 8px 25px
+                rgba(59,130,246,0.25);
+
+            transition:
+                0.25s ease;
+        }
+
+
+        .register-btn:hover {
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 12px 30px
+                rgba(59,130,246,0.38);
+        }
+
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+
+            width: calc(100% - 100px);
+
+            max-width: 1400px;
+
+            min-height: 800px;
+
+            margin: 0 auto;
+
+            display: grid;
+
+            grid-template-columns:
+                0.82fr 1.18fr;
+
+            align-items: center;
+
+            gap: 55px;
+
+            padding:
+                70px 0 80px;
+        }
+
+
+
+        /* =====================================================
+           LEFT CONTENT
+        ===================================================== */
+
+        .hero-left {
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        .eyebrow {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            padding:
+                9px 15px;
+
+            border-radius: 30px;
+
+            border: 1px solid
+                rgba(139,92,246,0.35);
+
+            background:
+                rgba(124,58,237,0.08);
+
+            color:
+                #a78bfa;
+
+            font-size: 11px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 30px;
+        }
+
+
+        .eyebrow-dot {
+
+            width: 7px;
+
+            height: 7px;
+
+            border-radius: 50%;
+
+            background:
+                #4ade80;
+
+            box-shadow:
+                0 0 14px
+                #4ade80;
+        }
+
+
+
+        /* MAIN TITLE */
+
+        .hero-title {
+
+            font-size:
+                clamp(62px, 6.2vw, 94px);
+
+            line-height:
+                0.91;
+
+            letter-spacing:
+                -5px;
+
+            font-weight:
+                850;
+
+            margin-bottom:
+                32px;
+        }
+
+
+        .gradient-text {
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #9b6cff,
+                    #22d3ee
+                );
+
+            -webkit-background-clip:
+                text;
+
+            background-clip:
+                text;
+
+            -webkit-text-fill-color:
+                transparent;
+        }
+
+
+        .hero-description {
+
+            max-width:
+                580px;
+
+            color:
+                rgba(255,255,255,0.60);
+
+            font-size:
+                17px;
+
+            line-height:
+                1.75;
+
+            margin-bottom:
+                32px;
+        }
+
+
+
+        /* =====================================================
+           HERO BUTTONS
+        ===================================================== */
+
+        .hero-buttons {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 14px;
+
+            margin-bottom:
+                42px;
+        }
+
+
+        .primary-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            padding:
+                16px 25px;
+
+            border-radius: 13px;
+
+            font-weight: 750;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #7c3aed,
+                    #2563eb
+                );
+
+            box-shadow:
+                0 12px 35px
+                rgba(59,130,246,0.25);
+
+            transition:
+                0.25s ease;
+        }
+
+
+        .primary-btn:hover {
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 18px 40px
+                rgba(59,130,246,0.38);
+        }
+
+
+        .secondary-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            padding:
+                15px 24px;
+
+            border-radius: 13px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.12);
+
+            color:
+                rgba(255,255,255,0.78);
+
+            transition:
+                0.25s ease;
+        }
+
+
+        .secondary-btn:hover {
+
+            border-color:
+                rgba(255,255,255,0.28);
+
+            background:
+                rgba(255,255,255,0.05);
+        }
+
+
+
+        /* =====================================================
+           FEATURE ROW
+        ===================================================== */
+
+        .feature-row {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            max-width:
+                650px;
+        }
+
+
+        .feature {
+
+            padding:
+                0 18px;
+
+            border-right:
+                1px solid
+                rgba(255,255,255,0.09);
+        }
+
+
+        .feature:first-child {
+
+            padding-left: 0;
+        }
+
+
+        .feature:last-child {
+
+            border-right: none;
+        }
+
+
+        .feature-icon {
+
+            font-size:
+                21px;
+
+            margin-bottom:
+                9px;
+        }
+
+
+        .feature-title {
+
+            font-size:
+                12px;
+
+            font-weight:
+                700;
+
+            margin-bottom:
+                5px;
+        }
+
+
+        .feature-text {
+
+            color:
+                rgba(255,255,255,0.42);
+
+            font-size:
+                10px;
+
+            line-height:
+                1.5;
+        }
+
+
+
+        /* =====================================================
+           RIGHT VIDEO AREA
+        ===================================================== */
+
+        .hero-right {
+
+            position: relative;
+
+            min-height:
+                650px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+
+        .image-glow {
+
+            position: absolute;
+
+            width: 75%;
+
+            height: 75%;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(124,58,237,0.32),
+                    rgba(6,182,212,0.10),
+                    transparent 70%
+                );
+
+            filter:
+                blur(35px);
+
+            z-index: 0;
+        }
+
+
+        .hero-image-card {
+
+            position: relative;
+
+            z-index: 2;
+
+            width: 100%;
+
+            max-width:
+                720px;
+
+            border-radius:
+                28px;
+
+            overflow: hidden;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.12);
+
+            background:
+                #0c1027;
+
+            box-shadow:
+                0 35px 90px
+                rgba(0,0,0,0.55);
+
+            transform:
+                translateY(5px);
+        }
+
+
+        .hero-video {
+
+            width: 100%;
+
+            height: 520px;
+
+            display: block;
+
+            object-fit: cover;
+
+            object-position: center;
+
+            background: #0c1027;
+
+        }
+
+
+
+        /* =====================================================
+           CREATE PLAY REPEAT
+        ===================================================== */
+
+        .image-caption {
+
+            position: absolute;
+
+            left: 28px;
+
+            right: 28px;
+
+            bottom: 24px;
+
+            z-index: 3;
+
+            display: flex;
+
+            align-items: flex-end;
+
+            justify-content:
+                space-between;
+
+            gap: 20px;
+        }
+
+
+        .caption-small {
+
+            color:
+                rgba(255,255,255,0.48);
+
+            font-size:
+                10px;
+
+            letter-spacing:
+                4px;
+
+            margin-bottom:
+                7px;
+        }
+
+
+        .caption-title {
+
+            font-size:
+                clamp(22px, 2.3vw, 32px);
+
+            font-weight:
+                850;
+
+            letter-spacing:
+                -1px;
+
+            text-shadow:
+                0 3px 20px
+                rgba(0,0,0,0.7);
+        }
+
+
+        .caption-title span {
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #c084fc,
+                    #22d3ee
+                );
+
+            -webkit-background-clip:
+                text;
+
+            background-clip:
+                text;
+
+            -webkit-text-fill-color:
+                transparent;
+        }
+
+
+        .caption-icons {
+
+            display: flex;
+
+            gap: 8px;
+        }
+
+
+        .caption-icon {
+
+            width: 50px;
+
+            height: 50px;
+
+            border-radius: 12px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.12);
+
+            background:
+                rgba(5,5,15,0.72);
+
+            backdrop-filter:
+                blur(10px);
+
+            font-size:
+                17px;
+        }
+
+
+        .caption-icon small {
+
+            margin-top:
+                3px;
+
+            font-size:
+                7px;
+
+            color:
+                rgba(255,255,255,0.55);
+
+            letter-spacing:
+                1px;
+        }
+
+
+
+        /* =====================================================
+           ABOUT SECTION
+        ===================================================== */
+
+        .about {
+
+            width:
+                calc(100% - 100px);
+
+            max-width:
+                1400px;
+
+            margin:
+                40px auto 100px;
+
+            padding:
+                70px;
+
+            border-radius:
+                28px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.07);
+
+            background:
+                rgba(255,255,255,0.025);
+
+            text-align:
+                center;
+        }
+
+
+        .about-label {
+
+            color:
+                #8b5cf6;
+
+            font-size:
+                11px;
+
+            letter-spacing:
+                3px;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                15px;
+        }
+
+
+        .about h2 {
+
+            font-size:
+                clamp(32px, 4vw, 54px);
+
+            margin-bottom:
+                18px;
+        }
+
+
+        .about p {
+
+            max-width:
+                720px;
+
+            margin:
+                0 auto;
+
+            color:
+                rgba(255,255,255,0.55);
+
+            line-height:
+                1.8;
+        }
+
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 1050px) {
+
+            .nav-links {
+
+                gap: 18px;
+
+                margin-left: 10px;
+            }
+
+
+            .hero {
+
+                grid-template-columns:
+                    1fr;
+
+                padding-top:
+                    60px;
+            }
+
+
+            .hero-left {
+
+                max-width:
+                    800px;
+
+                margin:
+                    0 auto;
+
+                text-align:
+                    center;
+            }
+
+
+            .eyebrow,
+            .hero-buttons {
+
+                justify-content:
+                    center;
+            }
+
+
+            .hero-description {
+
+                margin-left:
+                    auto;
+
+                margin-right:
+                    auto;
+            }
+
+
+            .feature-row {
+
+                margin:
+                    0 auto;
+
+                text-align:
+                    left;
+            }
+
+
+            .hero-right {
+
+                min-height:
+                    auto;
+            }
+        }
+
+
+
+        @media (max-width: 700px) {
+
+            .navbar {
+
+                width:
+                    calc(100% - 24px);
+
+                padding:
+                    10px 12px;
+            }
+
+
+            .nav-links {
+
+                display:
+                    none;
+            }
+
+
+            .logo {
+
+                font-size:
+                    15px;
+            }
+
+
+            .logo-icon {
+
+                width:
+                    36px;
+
+                height:
+                    36px;
+            }
+
+
+            .login-btn {
+
+                padding:
+                    9px 13px;
+
+                font-size:
+                    13px;
+            }
+
+
+            .register-btn {
+
+                padding:
+                    9px 13px;
+
+                font-size:
+                    13px;
+            }
+
+
+            .hero {
+
+                width:
+                    calc(100% - 30px);
+
+                padding:
+                    50px 0;
+            }
+
+
+            .hero-title {
+
+                font-size:
+                    clamp(52px, 15vw, 76px);
+
+                letter-spacing:
+                    -3px;
+            }
+
+
+            .hero-description {
+
+                font-size:
+                    15px;
+            }
+
+
+            .hero-buttons {
+
+                flex-direction:
+                    column;
+
+                align-items:
+                    stretch;
+            }
+
+
+            .primary-btn,
+            .secondary-btn {
+
+                justify-content:
+                    center;
+            }
+
+
+            .feature-row {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+                gap:
+                    25px;
+
+            }
+
+
+            .feature {
+
+                border-right:
+                    none;
+
+                padding:
+                    0;
+            }
+
+
+            .hero-video {
+
+                height:
+                    430px;
+            }
+
+
+            .image-caption {
+
+                left:
+                    18px;
+
+                right:
+                    18px;
+
+                bottom:
+                    18px;
+            }
+
+
+            .caption-icons {
+
+                display:
+                    none;
+            }
+
+
+            .about {
+
+                width:
+                    calc(100% - 30px);
+
+                padding:
+                    45px 25px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+
+<body>
+
+
+<div class="page">
+
+
+    <!-- =====================================================
+         NAVIGATION
+    ====================================================== -->
+
+    <header class="navbar">
+
+
+        <a
+            href="/"
+            class="logo"
+        >
+
+            <div class="logo-icon">
+                S
+            </div>
+
+            <span>
+                SmartGame Studio
+            </span>
+
+        </a>
+
+
+        <nav class="nav-links">
+
+            <a href="#features">
+                Features
+            </a>
+
+            <a href="#ai-games">
+                AI Games
+            </a>
+
+            <a href="#editor">
+                Visual Editor
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+        </nav>
+
+
+        <div class="nav-actions">
+
+            <!-- LOGIN GOES TO YOUR FLASK LOGIN PAGE -->
+
+            <a
+                href="{{ url_for('login') }}"
+                class="login-btn"
+            >
+                Login
+            </a>
+
+
+            <!-- REGISTER GOES TO YOUR FLASK REGISTER PAGE -->
+
+            <a
+                href="{{ url_for('register') }}"
+                class="register-btn"
+            >
+                Register
+            </a>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <main class="hero">
+
+
+        <!-- =================================================
+             LEFT SIDE
+        ================================================== -->
+
+        <section class="hero-left">
+
+
+            <div class="eyebrow">
+
+                <span class="eyebrow-dot"></span>
+
+                AI-powered game development
+
+            </div>
+
+
+            <h1 class="hero-title">
+
+                Build
+
+                <br>
+
+                <span class="gradient-text">
+                    great
+                </span>
+
+                <br>
+
+                games.
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                Turn your ideas into playable experiences
+                with an AI-powered game development studio
+                designed for creators.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+
+                <!-- THIS ALSO OPENS LOGIN -->
+
+                <a
+                    href="{{ url_for('login') }}"
+                    class="primary-btn"
+                >
+
+                    Start building
+
+                    <span>
+                        →
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="#features"
+                    class="secondary-btn"
+                >
+
+                    Explore studio
+
+                    <span>
+                        ↓
+                    </span>
+
+                </a>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 FEATURES
+            ================================================== -->
+
+            <div
+                class="feature-row"
+                id="features"
+            >
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        ✦
+                    </div>
+
+                    <div class="feature-title">
+                        AI-Powered
+                    </div>
+
+                    <div class="feature-text">
+                        Generate game code
+                        with natural language.
+                    </div>
+
+                </div>
+
+
+
+                <div
+                    class="feature"
+                    id="editor"
+                >
+
+                    <div class="feature-icon">
+                        ◈
+                    </div>
+
+                    <div class="feature-title">
+                        Visual Editor
+                    </div>
+
+                    <div class="feature-text">
+                        Build scenes with
+                        simple visual tools.
+                    </div>
+
+                </div>
+
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        ▶
+                    </div>
+
+                    <div class="feature-title">
+                        Live Preview
+                    </div>
+
+                    <div class="feature-text">
+                        See your game
+                        while building.
+                    </div>
+
+                </div>
+
+
+
+                <div
+                    class="feature"
+                    id="ai-games"
+                >
+
+                    <div class="feature-icon">
+                        ✧
+                    </div>
+
+                    <div class="feature-title">
+                        Creator Community
+                    </div>
+
+                    <div class="feature-text">
+                        Learn, share and
+                        create together.
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             RIGHT SIDE — INTRO VIDEO
+        ================================================== -->
+
+        <section class="hero-right">
+
+
+            <div class="image-glow"></div>
+
+
+            <div class="hero-image-card">
+
+
+                <!-- =================================================
+                     INTRO VIDEO
+
+                     Your video must be here:
+
+                     static/videos/intro.mp4
+                ================================================== -->
+
+                <video
+                    class="hero-video"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    preload="auto"
+                >
+                    <source
+                        src="{{ url_for('static', filename='videos/intro.mp4') }}"
+                        type="video/mp4"
+                    >
+                    Your browser does not support the video tag.
+                </video>
+
+
+                <!-- =================================================
+                     CREATE PLAY REPEAT
+                ================================================== -->
+
+                <div class="image-caption">
+
+
+                    <div>
+
+                        <div class="caption-small">
+                            YOUR NEXT PROJECT
+                        </div>
+
+                        <div class="caption-title">
+
+                            CREATE.
+                            <span>PLAY.</span>
+                            REPEAT.
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="caption-icons">
+
+
+                        <div class="caption-icon">
+
+                            ✦
+
+                            <small>
+                                AI
+                            </small>
+
+                        </div>
+
+
+                        <div class="caption-icon">
+
+                            ◈
+
+                            <small>
+                                EDITOR
+                            </small>
+
+                        </div>
+
+
+                        <div class="caption-icon">
+
+                            ▶
+
+                            <small>
+                                PLAY
+                            </small>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         ABOUT
+    ====================================================== -->
+
+    <section
+        class="about"
+        id="about"
+    >
+
+        <div class="about-label">
+            SMARTGAME STUDIO
+        </div>
+
+
+        <h2>
+            From an idea to a playable world.
+        </h2>
+
+
+        <p>
+
+            SmartGame Studio is designed to make
+            game development more accessible by
+            combining artificial intelligence,
+            visual tools and live game previews
+            in one creative workspace.
+
+        </p>
+
+    </section>
+
+
+</div>
+
+
+</body>
+
+</html>

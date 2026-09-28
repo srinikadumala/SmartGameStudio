@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Register | SmartGame Studio</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/auth.css') }}">
+
+</head>
+
+
+<body>
+
+
+<div class="auth-screen">
+
+
+    <a href="{{ url_for('index') }}"
+       class="auth-back">
+
+        ← SmartGame Studio
+
+    </a>
+
+
+    <div class="auth-box">
+
+
+        <div class="auth-brand">
+
+            <div class="brand-icon">
+                S
+            </div>
+
+            <strong>
+                SmartGame Studio
+            </strong>
+
+        </div>
+
+
+        <h1>
+            Create your account
+        </h1>
+
+
+        <p class="auth-description">
+            Start building your first game with SmartGame.
+        </p>
+
+
+        <button class="google-login"
+                type="button">
+
+            <strong>
+                G
+            </strong>
+
+            Continue with Google
+
+        </button>
+
+
+        <div class="or-divider">
+
+            <span></span>
+
+            OR
+
+            <span></span>
+
+        </div>
+
+
+        <form method="POST"
+              action="{{ url_for('register') }}">
+
+
+            <label>
+                Username
+            </label>
+
+            <input
+                type="text"
+                name="username"
+                placeholder="Choose a username"
+                required
+            >
+
+
+            <label>
+                Email
+            </label>
+
+            <input
+                type="email"
+                name="email"
+                placeholder="you@example.com"
+                required
+            >
+
+
+            <label>
+                Password
+            </label>
+
+            <input
+                type="password"
+                name="password"
+                placeholder="Create a password"
+                required
+            >
+
+
+            <button type="submit"
+                    class="auth-submit">
+
+                Create account
+
+                <span>→</span>
+
+            </button>
+
+
+        </form>
+
+
+        <p class="auth-switch">
+
+            Already have an account?
+
+            <a href="{{ url_for('login') }}">
+                Login
+            </a>
+
+        </p>
+
+
+    </div>
+
+</div>
+
+
+</body>
+
+</html>

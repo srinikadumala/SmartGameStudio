@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>SmartGame Studio</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/auth.css') }}">
+
+</head>
+
+<body>
+
+<div class="dashboard-screen">
+
+    <!-- TOP BAR -->
+
+    <header class="dashboard-header">
+
+        <a href="{{ url_for('dashboard') }}"
+           class="brand">
+
+            <div class="brand-icon">
+                S
+            </div>
+
+            <div class="brand-name">
+
+                <strong>
+                    SmartGame
+                </strong>
+
+                <span>
+                    STUDIO
+                </span>
+
+            </div>
+
+        </a>
+
+        <nav class="dashboard-links">
+
+            <a class="active">
+                Workspace
+            </a>
+
+            <a>
+                Projects
+            </a>
+
+            <a>
+                Assets
+            </a>
+
+        </nav>
+
+        <div class="dashboard-user">
+
+            <span class="user-name">
+                {{ username }}
+            </span>
+
+            <a href="{{ url_for('logout') }}"
+               class="logout-link">
+
+                Log out
+
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- MAIN DASHBOARD -->
+
+    <main class="dashboard-main">
+
+        <section class="dashboard-intro">
+
+            <div>
+
+                <div class="workspace-status">
+
+                    <span></span>
+
+                    WORKSPACE READY
+
+                </div>
+
+                <h1>
+
+                    Welcome,
+                    <span>{{ username }}</span>.
+
+                </h1>
+
+                <p>
+
+                    Your game development workspace is ready.
+                    What are you going to build today?
+
+                </p>
+
+            </div>
+
+            <button class="new-project">
+
+                + New project
+
+            </button>
+
+        </section>
+
+
+        <!-- LARGE PROJECT AREA -->
+
+        <section class="project-area">
+
+            <div class="project-preview">
+
+                <div class="preview-top">
+
+                    <span>
+                        GAME PREVIEW
+                    </span>
+
+                    <span class="preview-live">
+                        ● LIVE
+                    </span>
+
+                </div>
+
+
+                <!-- CANVA INTRO VIDEO -->
+
+                <div class="dashboard-game">
+
+                    <video
+                        class="intro-video"
+                        autoplay
+                        muted
+                        loop
+                        playsinline>
+
+                        <source
+                            src="{{ url_for('static', filename='videos/intro.mp4') }}"
+                            type="video/mp4">
+
+                        Your browser does not support the video tag.
+
+                    </video>
+
+                </div>
+
+            </div>
+
+
+            <!-- SIDE PANEL -->
+
+            <aside class="workspace-panel">
+
+                <div class="panel-heading">
+
+                    <span>
+                        CURRENT PROJECT
+                    </span>
+
+                    <button>
+                        •••
+                    </button>
+
+                </div>
+
+                <h2>
+                    My First Game
+                </h2>
+
+                <p>
+                    Your next game starts here.
+                    Use AI to generate mechanics,
+                    scenes and gameplay.
+                </p>
+
+                <div class="project-stat">
+
+                    <div>
+
+                        <small>
+                            STATUS
+                        </small>
+
+                        <strong>
+                            Ready
+                        </strong>
+
+                    </div>
+
+                    <div>
+
+                        <small>
+                            ENGINE
+                        </small>
+
+                        <strong>
+                            Python
+                        </strong>
+
+                    </div>
+
+                </div>
+
+                <button class="open-project">
+
+                    Open project
+
+                    <span>
+                        →
+                    </span>
+
+                </button>
+
+            </aside>
+
+        </section>
+
+
+        <!-- ACCOUNT -->
+
+        <section class="account-strip">
+
+            <div>
+
+                <small>
+                    SIGNED IN AS
+                </small>
+
+                <strong>
+                    {{ email }}
+                </strong>
+
+            </div>
+
+            <div>
+
+                <small>
+                    ACCOUNT
+                </small>
+
+                <strong class="account-active">
+                    ● Active
+                </strong>
+
+            </div>
+
+        </section>
+
+
+        <!-- TOOLS -->
+
+        <section class="dashboard-tools">
+
+            <div class="tool-card">
+
+                <span>
+                    ✦
+                </span>
+
+                <h3>
+                    AI Game Creator
+                </h3>
+
+                <p>
+                    Describe your idea and start generating.
+                </p>
+
+                <a>
+                    Start creating →
+                </a>
+
+            </div>
+
+
+            <div class="tool-card">
+
+                <span>
+                    ◈
+                </span>
+
+                <h3>
+                    Visual Editor
+                </h3>
+
+                <p>
+                    Design your scenes and arrange assets.
+                </p>
+
+                <a>
+                    Open editor →
+                </a>
+
+            </div>
+
+
+            <div class="tool-card">
+
+                <span>
+                    ▶
+                </span>
+
+                <h3>
+                    Live Preview
+                </h3>
+
+                <p>
+                    Test your game while you build.
+                </p>
+
+                <a>
+                    Launch preview →
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Login | SmartGame Studio</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/auth.css') }}">
+
+</head>
+
+
+<body>
+
+
+<div class="auth-screen">
+
+
+    <a href="{{ url_for('index') }}"
+       class="auth-back">
+
+        ← SmartGame Studio
+
+    </a>
+
+
+    <div class="auth-box">
+
+
+        <div class="auth-brand">
+
+            <div class="brand-icon">
+                S
+            </div>
+
+            <strong>
+                SmartGame Studio
+            </strong>
+
+        </div>
+
+
+        <h1>
+            Welcome back
+        </h1>
+
+
+        <p class="auth-description">
+            Sign in to continue building your next game.
+        </p>
+
+
+        <button class="google-login"
+                type="button">
+
+            <strong>
+                G
+            </strong>
+
+            Continue with Google
+
+        </button>
+
+
+        <div class="or-divider">
+
+            <span></span>
+
+            OR
+
+            <span></span>
+
+        </div>
+
+
+        <form method="POST"
+              action="{{ url_for('login') }}">
+
+
+            <label>
+                Email
+            </label>
+
+            <input
+                type="email"
+                name="email"
+                placeholder="you@example.com"
+                required
+            >
+
+
+            <label>
+                Password
+            </label>
+
+            <input
+                type="password"
+                name="password"
+                placeholder="Your password"
+                required
+            >
+
+
+            <button type="submit"
+                    class="auth-submit">
+
+                Sign in
+
+                <span>→</span>
+
+            </button>
+
+
+        </form>
+
+
+        <p class="auth-switch">
+
+            Don't have an account?
+
+            <a href="{{ url_for('register') }}">
+                Create one
+            </a>
+
+        </p>
+
+
+    </div>
+
+</div>
+
+
+</body>
+
+</html>
